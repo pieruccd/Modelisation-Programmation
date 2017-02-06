@@ -19,18 +19,17 @@ class Dvector
 
 		void display (std::ostream& str);
 
-		int size();
+		int size() const;
 
-		double Case(int i);
+		double Case(int i) const;
 
 		void fillRandomly();
 
 		Dvector(const Dvector & v);
 
 		Dvector(std::string S);
-	
-		double & operator()(int i); 
 
+		double & operator()(int i);
 	private :
 		double *p;
 

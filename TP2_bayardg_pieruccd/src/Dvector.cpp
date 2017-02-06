@@ -1,8 +1,6 @@
 #include "Dvector.h"
 #include <stdlib.h>
 #include <fstream>
-#include "assert.h"
-
 using namespace std;
 
 void Dvector::display (std::ostream& str){
@@ -10,6 +8,7 @@ void Dvector::display (std::ostream& str){
 		str<<p[i]<<"\n";
 	}
 }
+
 
 Dvector::~Dvector()
 {
@@ -48,14 +47,10 @@ Dvector::Dvector (int d, double value)
 	std::cout<<"Dvector de  "<<dim<<" cases de valeur "<<value<<" créé\n";
 }
 
-int Dvector::size(){
+int Dvector::size() const{
 	return this->dim;
 }
 
-double Dvector::Case(int i)
-{
-	return p[i];
-}
 
 void Dvector::fillRandomly(){
 	for (int i=0;i<this->dim;i++){
@@ -96,29 +91,35 @@ Dvector::Dvector(std::string S){
 	{
 		cout<<"Erreur : impossible d'ouvrir le fichier"<<"\n";
 	}
-}
-	
-	double & Dvector::operator()(int i) {
-		assert(i<dim && i>=0);
-		return p[i];
-	}
 
+}
+
+double Dvector::Case(int i) const{
+	return p[i];
+}
+
+double & Dvector::operator()(int i){
+	return p[i];
+}
 
 Dvector operator+(const Dvector & v,const double & d){
-	for (int i=0;i<dim;i++){
-		p[i]=p[i]+d;
+	Dvector a(v.size());
+	for (int i=0;i<v.dim;i++){
+		a(i)=v.Case(i)+d;
 	}
 }
 
 Dvector operator-(const Dvector & v,const double & d){
-	for (int i=0;i<dim;i++){
-		p[i]=p[i]-d;
+	Dvector a(v.size());
+	for (int i=0;i<v.dim;i++){
+		a(i)=v.Case(i)-d;
 	}
 }
 
 Dvector operator*(const Dvector & v,const double & d){
-	for (int i=0;i<dim;i++){
-		p[i]=p[i]*d;
+        Dvector a(v.size());
+	for (int i=0;i<v.dim;i++){
+		a(i)=v.Case(i)*d;
 	}
 }
 
@@ -128,8 +129,9 @@ Dvector operator/(const Dvector & v,const double & d){
 	}
 	else
 	{
-		for (int i=0;i<dim;i++){
-			p[i]=p[i]/d;
+        Dvector a(v.size());
+		for (int i=0;i<v.dim;i++){
+			a(i)=v.Case(i)/d;
 		}
 	}
 }

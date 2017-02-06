@@ -1,6 +1,8 @@
 #include "Dvector.h"
 #include <stdlib.h>
 #include <fstream>
+#include "assert.h"
+
 using namespace std;
 
 void Dvector::display (std::ostream& str){
@@ -8,7 +10,6 @@ void Dvector::display (std::ostream& str){
 		str<<p[i]<<"\n";
 	}
 }
-
 
 Dvector::~Dvector()
 {
@@ -95,8 +96,13 @@ Dvector::Dvector(std::string S){
 	{
 		cout<<"Erreur : impossible d'ouvrir le fichier"<<"\n";
 	}
-
 }
+	
+	double & Dvector::operator()(int i) {
+		assert(i<dim && i>=0);
+		return p[i];
+	}
+
 
 Dvector operator+(const Dvector & v,const double & d){
 	for (int i=0;i<dim;i++){

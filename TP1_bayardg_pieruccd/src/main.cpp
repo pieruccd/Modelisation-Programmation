@@ -33,5 +33,8 @@ int main(void)
 	Dvector s("tp1_test1.txt");
 	s.display(std::cout);
 	assert(s.size()==10);
+	Dvector t("tp1_test2.txt");
+	t.display(std::cout);
+	assert(t.size() == 16737);
 
 }

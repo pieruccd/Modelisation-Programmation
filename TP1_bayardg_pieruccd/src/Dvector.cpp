@@ -1,6 +1,6 @@
 #include "Dvector.h"
 #include <stdlib.h>
-#include<fstream>
+#include <fstream>
 using namespace std;
 
 void Dvector::display (std::ostream& str){
@@ -76,9 +76,16 @@ Dvector::Dvector(std::string S){
 	fichier.open(S.c_str());
 	int i=0;
 	double x;
+	dim = 0;
 	if (fichier){
 		while(fichier >> x)
 		{
+			dim++;
+		}
+		p = new double[dim];
+		fichier.close();
+		fichier.open(S.c_str());
+		while(fichier >> x) {
 			p[i]=x;
 			i++;
 		}

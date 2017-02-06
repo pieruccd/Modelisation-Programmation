@@ -30,5 +30,8 @@ int main(void)
 	assert(x.Case(1)>=0);
 	assert(x.Case(1)<=1);
 	std::cout<<"Remplissage random des cases : OK\n";
+	Dvector s("tp1_test1.txt");
+	s.display(std::cout);
+	assert(s.size()==10);
 
 }

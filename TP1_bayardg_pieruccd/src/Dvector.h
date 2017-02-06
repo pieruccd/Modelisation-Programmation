@@ -21,11 +21,13 @@ class Dvector
 
 		int size();
 
+		double Case(int i);
+
 		void fillRandomly();
 
 		Dvector(const Dvector & v);
 
-		Dvector(std::string);
+		Dvector(std::string S);
 
 	private :
 		double *p;

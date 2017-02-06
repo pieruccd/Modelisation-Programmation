@@ -34,4 +34,13 @@ class Dvector
 
 };
 
+Dvector operator+(const Dvector & v,const double & d);
+
+Dvector operator-(const Dvector & v,const double & d);
+
+Dvector operator*(const Dvector & v,const double & d);
+
+Dvector operator/(const Dvector & v,const double & d);
+
+
 #endif

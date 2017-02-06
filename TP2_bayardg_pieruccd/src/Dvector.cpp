@@ -13,7 +13,7 @@ void Dvector::display (std::ostream& str){
 Dvector::~Dvector()
 {
 	delete [] p;
-std::cout<<"Dvector détruit\n";
+	std::cout<<"Dvector détruit\n";
 }
 
 Dvector::Dvector(int d)
@@ -23,7 +23,7 @@ Dvector::Dvector(int d)
 	for (int i=0; i<dim; i++){
 		p[i] = 0;
 	}
-std::cout<<"Dvector de taille "<<dim<<" créé\n";
+	std::cout<<"Dvector de taille "<<dim<<" créé\n";
 }
 
 Dvector::Dvector()
@@ -32,8 +32,8 @@ Dvector::Dvector()
 	p=new double[dim];
 	for (int i=0; i<dim; i++){
 		p[i] = 0;	
-std::cout<<"DVector vide créé";
-}
+		std::cout<<"DVector vide créé";
+	}
 
 }
 
@@ -41,9 +41,10 @@ Dvector::Dvector (int d, double value)
 {
 	dim = d;
 	p = new double[dim];
-	for (int i=0; i<dim; i++)
+	for (int i=0; i<dim; i++){
 		p[i] = value;
-std::cout<<"Dvector de  "<<dim<<" cases de valeur "<<value<<" créé\n";
+	}
+	std::cout<<"Dvector de  "<<dim<<" cases de valeur "<<value<<" créé\n";
 }
 
 int Dvector::size(){
@@ -68,7 +69,7 @@ Dvector::Dvector(const Dvector & v)
 	for (int i=0;i<dim;i++){
 		p[i]=v.p[i];
 	}
-std::cout<<"Dvector de  "<<dim<<" cases créé\n";
+	std::cout<<"Dvector de  "<<dim<<" cases créé\n";
 }
 
 Dvector::Dvector(std::string S){
@@ -95,5 +96,35 @@ Dvector::Dvector(std::string S){
 		cout<<"Erreur : impossible d'ouvrir le fichier"<<"\n";
 	}
 
+}
+
+Dvector operator+(const Dvector & v,const double & d){
+	for (int i=0;i<dim;i++){
+		p[i]=p[i]+d;
+	}
+}
+
+Dvector operator-(const Dvector & v,const double & d){
+	for (int i=0;i<dim;i++){
+		p[i]=p[i]-d;
+	}
+}
+
+Dvector operator*(const Dvector & v,const double & d){
+	for (int i=0;i<dim;i++){
+		p[i]=p[i]*d;
+	}
+}
+
+Dvector operator/(const Dvector & v,const double & d){
+	if (d==0){
+		cout<<"Erreur : divion par 0"<<"\n";
+	}
+	else
+	{
+		for (int i=0;i<dim;i++){
+			p[i]=p[i]/d;
+		}
+	}
 }
 

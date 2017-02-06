@@ -28,6 +28,8 @@ class Dvector
 		Dvector(const Dvector & v);
 
 		Dvector(std::string S);
+	
+		double & operator()(int i); 
 
 	private :
 		double *p;

@@ -16,4 +16,4 @@ main.o: Dvector.h
 	$(CC) -o $@ -c $< $(CFLAGS)
 
 clean:
-	rm -rf src/*.o
+	rm -rf src/*.o Dvector

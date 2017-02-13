@@ -40,7 +40,14 @@ int main(void)
 	v1(0) = 0.0;
 	const Dvector v2(1);
 	double val = v2(0);
-	Dvector v3(4);
+ Dvector v3(4);
 	double val2 = v3(0);
 	v3=v3+5.0;
+	v3=v2;
+	v2+=2.0;
+	v2/=3.0;
+	v2-=10.0;
+	v2*=2.0;
+	v2=v3+v3;
+	v2=v3*v3;
 }

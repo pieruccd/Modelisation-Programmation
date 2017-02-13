@@ -25,45 +25,45 @@ class Dvector
 
 		void fillRandomly();
 
-		Dvector(const Dvector & v);
+		Dvector(Dvector & v);
 
 		Dvector(std::string S);
 
 		double& operator()(int i) const;
 
-		Dvector & operator += (Dvector & v);
+		Dvector & operator += (const Dvector & v);
 
-		Dvector & operator -= (Dvector & v);
+		Dvector & operator -= (const Dvector & v);
 
-		Dvector & operator *= (Dvector & v);
+		Dvector & operator *= (const Dvector & v);
 
-		Dvector & operator /= (Dvector & v);
+		Dvector & operator /= (const Dvector & v);
 
-		Dvector & operator += (double & d);
+		Dvector & operator += (const double & d);
 
-		Dvector & operator -= (double & d);
+		Dvector & operator -= (const double & d);
 
-		Dvector & operator *= (double & d);
+		Dvector & operator *= (const double & d);
 
-		Dvector & operator /= (double & d);
+		Dvector & operator /= (const double & d);
 
 		bool operator == (Dvector & v);
 
 
-		Dvector & operator = (Dvector & v);
+		Dvector& operator = (const Dvector & v);
 
 	private :
 		double *p;
 
 };
 
-Dvector operator+(Dvector & v,double & d);
+Dvector operator+(Dvector & v,const double & d);
 
-Dvector operator-(Dvector & v,double & d);
+Dvector operator-(Dvector & v,const double & d);
 
-Dvector operator*(Dvector & v,double & d);
+Dvector operator*(Dvector & v,const double & d);
 
-Dvector operator/(Dvector & v,double & d);
+Dvector operator/(Dvector & v,const double & d);
 
 Dvector operator+(Dvector & v, Dvector & w);
 

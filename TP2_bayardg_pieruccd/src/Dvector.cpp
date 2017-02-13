@@ -61,7 +61,7 @@ void Dvector::fillRandomly(){
 	}
 }
 
-Dvector::Dvector(const Dvector & v)
+Dvector::Dvector(Dvector & v)
 {
 	dim = v.dim;
 	p=new double[dim];
@@ -108,7 +108,7 @@ double& Dvector::operator()(int i) const{
 	}
 }
 
-Dvector operator+(Dvector & v,double & d){
+Dvector operator+(Dvector & v,const double & d){
 	Dvector a(v.size());
 	for (int i=0;i<v.dim;i++){
 		a(i)=v(i)+d;
@@ -116,7 +116,7 @@ Dvector operator+(Dvector & v,double & d){
 	return a;
 }
 
-Dvector operator-(Dvector & v,double & d){
+Dvector operator-(Dvector & v,const double & d){
 	Dvector a(v.size());
 	for (int i=0;i<v.dim;i++){
 		a(i)=v(i)-d;
@@ -124,7 +124,7 @@ Dvector operator-(Dvector & v,double & d){
 	return a;
 }
 
-Dvector operator*(Dvector & v,double & d){
+Dvector operator*(Dvector & v,const double & d){
 	Dvector a(v.size());
 	for (int i=0;i<v.dim;i++){
 		a(i)=v(i)*d;
@@ -132,7 +132,7 @@ Dvector operator*(Dvector & v,double & d){
 	return a;
 }
 
-Dvector operator/(Dvector & v,double & d){
+Dvector operator/(Dvector & v,const double & d){
 	if (d==0){
 		cout<<"Erreur : divion par 0"<<"\n";
 		throw 0.0;
@@ -209,7 +209,7 @@ std::istream & operator >> (std::istream & In, Dvector & v){
 	return In;
 }
 
-Dvector & Dvector::operator += (double & d){
+Dvector & Dvector::operator += (const double & d){
 	Dvector &w=*this;
 	for (int i=0; i<dim; i++){
 		w(i)=w(i)+d;
@@ -217,7 +217,7 @@ Dvector & Dvector::operator += (double & d){
 	return w;
 }
 
-Dvector & Dvector::operator -= (double & d){
+Dvector & Dvector::operator -= (const double & d){
 	Dvector &w=*this;
 	for (int i=0; i<dim; i++){
 		w(i)=w(i)-d;
@@ -225,7 +225,7 @@ Dvector & Dvector::operator -= (double & d){
 	return w;
 }
 
-Dvector & Dvector::operator *= (double & d){
+Dvector & Dvector::operator *= (const double & d){
 	Dvector &w=*this;
 	for (int i=0; i<dim; i++){
 		w(i)=w(i)*d;
@@ -233,7 +233,7 @@ Dvector & Dvector::operator *= (double & d){
 	return w;
 }
 
-Dvector & Dvector::operator /= (double & d){
+Dvector & Dvector::operator /= (const double & d){
 	Dvector &w=*this;
 	if (d==0){
 		cout<<"Division par 0\n";
@@ -247,7 +247,7 @@ Dvector & Dvector::operator /= (double & d){
 	}
 }
 
-Dvector & Dvector::operator+= (Dvector & v){
+Dvector & Dvector::operator+= (const Dvector & v){
 	Dvector &w=*this;
 	for (int i=0; i<dim; i++){
 		w(i)=w(i)+v(i);
@@ -255,7 +255,7 @@ Dvector & Dvector::operator+= (Dvector & v){
 	return w;
 }
 
-Dvector & Dvector::operator-= (Dvector & v){
+Dvector & Dvector::operator-= (const Dvector & v){
 	Dvector &w=*this;
 	for (int i=0; i<dim; i++){
 		w(i)=w(i)-v(i);
@@ -263,7 +263,7 @@ Dvector & Dvector::operator-= (Dvector & v){
 	return w;
 }
 
-Dvector & Dvector::operator*= (Dvector & v){
+Dvector & Dvector::operator*= (const Dvector & v){
 	Dvector &w=*this;
 	for (int i=0; i<dim; i++){
 		w(i)=w(i)*v(i);
@@ -271,7 +271,7 @@ Dvector & Dvector::operator*= (Dvector & v){
 	return w;
 }
 
-Dvector & Dvector::operator/= (Dvector & v){
+Dvector & Dvector::operator/= (const Dvector & v){
 	Dvector &w=*this;
 	for (int i=0; i<dim; i++){
 		if (v(i)==0){
@@ -285,7 +285,7 @@ Dvector & Dvector::operator/= (Dvector & v){
 	return w;
 }
 
-Dvector & Dvector::operator= (Dvector & v)
+Dvector & Dvector::operator= (const Dvector & v)
 {
 	if(this == &v) return *this; 
 	delete[] p; 

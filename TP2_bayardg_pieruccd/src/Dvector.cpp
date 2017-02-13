@@ -46,7 +46,7 @@ Dvector::Dvector (int d, double value)
 	std::cout<<"Dvector de  "<<dim<<" cases de valeur "<<value<<" créé\n";
 }
 
-int Dvector::size() {
+int Dvector::size() const{
 	return this->dim;
 }
 

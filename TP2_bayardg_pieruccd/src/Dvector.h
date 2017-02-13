@@ -19,7 +19,7 @@ class Dvector
 
 		void display (std::ostream& str);
 
-		int size();
+		int size() const;
 
 		double Case(int i);
 

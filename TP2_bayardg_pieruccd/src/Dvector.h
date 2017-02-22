@@ -49,8 +49,9 @@ class Dvector
 
 		bool operator == (Dvector & v);
 
-
 		Dvector& operator = (const Dvector & v);
+
+		void resize(const int & taille, const double & value);
 
 	private :
 		double *p;

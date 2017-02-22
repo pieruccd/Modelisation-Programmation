@@ -12,8 +12,8 @@ void Dvector::display (std::ostream& str){
 
 Dvector::~Dvector()
 {
+	std::cout<<"Dvector de taille "<<dim<<" détruit\n";
 	delete [] p;
-	std::cout<<"Dvector détruit\n";
 }
 
 Dvector::Dvector(int d)
@@ -64,10 +64,11 @@ void Dvector::fillRandomly(){
 Dvector::Dvector(Dvector & v)
 {
 	dim = v.dim;
-	p=new double[dim];
-	for (int i=0;i<dim;i++){
-		p[i]=v.p[i];
-	}
+	p=new double[dim];/*
+			     for (int i=0;i<dim;i++){
+			     p[i]=v.p[i];
+			     }*/
+	*this = v;
 	std::cout<<"Dvector de  "<<dim<<" cases créé\n";
 }
 
@@ -148,41 +149,53 @@ Dvector operator/(Dvector & v,const double & d){
 }
 
 Dvector operator+(Dvector & v,Dvector & w) {
-	Dvector a(v.size());
-	for (int i=0;i<v.dim;i++){
+	/*	Dvector a(v.size());
+		for (int i=0;i<v.dim;i++){
 		a(i)=v(i)+w(i);
-	}
-	return a;
+		}
+		return a; */
+	Dvector v1(v);
+	v1+=(w);
+	return v1;
 }
 
 Dvector operator-(Dvector & v,Dvector & w){
-	Dvector a(v.size());
-	for (int i=0;i<v.dim;i++){
+	/*	Dvector a(v.size());
+		for (int i=0;i<v.dim;i++){
 		a(i)=v(i)-w(i);
-	}
-	return a;
+		}
+		return a;*/
+	Dvector v1(v);
+	v1-=(w);
+	return v1;
 }
 
 Dvector operator*(Dvector & v,Dvector & w) {
-	Dvector a(v.size());
-	for (int i=0;i<v.dim;i++){
+	/*	Dvector a(v.size());
+		for (int i=0;i<v.dim;i++){
 		a(i)=v(i)*w(i);
-	}
-	return a;
+		}
+		return a;*/
+	Dvector v1(v);
+	v1*=(w);
+return v1;
 }
 
 Dvector operator/(Dvector & v,Dvector & w){
-	Dvector a(v.size());
-	for (int i=0;i<v.dim;i++){
+	/*	Dvector a(v.size());
+		for (int i=0;i<v.dim;i++){
 		if (w(i)==0){
-			cout<<"Erreur : division par 0"<<"\n";
-			throw 0;
+		cout<<"Erreur : division par 0"<<"\n";
+		throw 0;
 		}
 		else{
-			a(i)=v(i)/w(i);
+		a(i)=v(i)/w(i);
 		}
-	}
-	return a;
+		}
+		return a; */
+	Dvector v1(v);
+	v1/=(w);
+	return v1;
 }
 
 Dvector operator-(Dvector & v) {
@@ -237,7 +250,7 @@ Dvector & Dvector::operator /= (const double & d){
 	Dvector &w=*this;
 	if (d==0){
 		cout<<"Division par 0\n";
-			throw 0.0;
+		throw 0.0;
 	}
 	else{
 		for (int i=0; i<dim; i++){
@@ -252,6 +265,7 @@ Dvector & Dvector::operator+= (const Dvector & v){
 	for (int i=0; i<dim; i++){
 		w(i)=w(i)+v(i);
 	}
+	return w;
 	return w;
 }
 
@@ -268,7 +282,7 @@ Dvector & Dvector::operator*= (const Dvector & v){
 	for (int i=0; i<dim; i++){
 		w(i)=w(i)*v(i);
 	}
-	return w;
+	return w; 
 }
 
 Dvector & Dvector::operator/= (const Dvector & v){
@@ -309,4 +323,34 @@ bool Dvector::operator== (Dvector & v)
 	}
 	return true;
 }
+
+void Dvector::resize(const int & taille, const double & value){
+	Dvector nouveau(taille);
+	if (taille <= dim){
+		for (int i=0;i<taille;i++){
+			nouveau(i)=p[i];
+		}
+	}
+	else{
+		for (int i=0;i<dim;i++){
+			nouveau(i)=p[i];
+		}
+		for (int i=dim;i<taille;i++){
+			nouveau(i) = value;
+		}
+	}
+	*this = nouveau;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 

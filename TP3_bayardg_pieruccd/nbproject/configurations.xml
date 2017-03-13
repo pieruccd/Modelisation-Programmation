@@ -4,6 +4,8 @@
     <df root="." name="0">
       <df name="src">
         <in>GenerateurNombreAleatoire.cpp</in>
+        <in>ParkMiller.cpp</in>
+        <in>ParkMiller.h</in>
         <in>main.cpp</in>
       </df>
     </df>
@@ -34,7 +36,7 @@
           <buildCommandWorkingDir>.</buildCommandWorkingDir>
           <buildCommand>${MAKE} -f Makefile</buildCommand>
           <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
-          <executablePath></executablePath>
+          <executablePath>GenerateurNombreAleatoire</executablePath>
           <ccTool>
             <incDir>
               <pElem>.</pElem>
@@ -47,6 +49,10 @@
         </preBuild>
       </makefileType>
       <item path="src/GenerateurNombreAleatoire.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ParkMiller.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ParkMiller.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>

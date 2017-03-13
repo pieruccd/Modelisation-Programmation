@@ -5,6 +5,8 @@
       <df name="src">
         <in>GenerateurNombreAleatoire.cpp</in>
         <in>GenerateurNombreAleatoire.h</in>
+        <in>ParkMiller.cpp</in>
+        <in>ParkMiller.h</in>
         <in>main.cpp</in>
       </df>
     </df>

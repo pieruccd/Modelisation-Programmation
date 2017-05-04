@@ -5,7 +5,7 @@
 #include "cmath"
 
 XorShift::XorShift() {
-    seed = time(NULL);
+    seed = (unsigned long) time(NULL);
     a1 = 21;
     a2 = 35;
     a3 = 4;
@@ -50,11 +50,14 @@ void XorShift::setA3(long a3) {
 std::vector<double> XorShift::generate() {
     std::vector<double> result;
     result.resize(dimension);
+    seed = seed ^ (seed << a1);
+    seed = seed ^ (seed >> a2);
+    seed = seed ^ (seed << a3);
     for (int i = 0; i < dimension; i++) {
         seed = seed ^ (seed << a1);
         seed = seed ^ (seed >> a2);
         seed = seed ^ (seed << a3);
-        result[i] = std::abs((double) seed / (double) LONG_MAX);
+        result[i] = (double) seed / ((double) ULONG_MAX);
     }
     return result;
 }

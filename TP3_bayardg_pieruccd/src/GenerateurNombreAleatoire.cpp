@@ -17,7 +17,7 @@ void GenerateurNombreAleatoire::setDimension(int dim) {
     dimension = dim;
 }
 
-void GenerateurNombreAleatoire::set_seed(int new_seed) {
+void GenerateurNombreAleatoire::set_seed(unsigned long new_seed) {
     seed = new_seed;
 }
 
@@ -26,7 +26,7 @@ long GenerateurNombreAleatoire::get_seed() {
 }
 
 void GenerateurNombreAleatoire::reset_seed() {
-    seed = time(NULL);
+    seed = (unsigned long) time(NULL);
 }
 
 std::vector<double> GenerateurNombreAleatoire::generate() {

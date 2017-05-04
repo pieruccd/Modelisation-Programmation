@@ -11,14 +11,14 @@ public:
     GenerateurNombreAleatoire(int dim);
     int getDimension(void);
     void setDimension(int dim);
-    void set_seed(int new_seed);
+    void set_seed(unsigned long new_seed);
     long get_seed();
     void reset_seed();
     virtual std::vector<double> generate();
 
 protected:
     int dimension;
-    long seed;
+    unsigned long seed;
 };
 
 #endif /*GENENBALEA_H*/

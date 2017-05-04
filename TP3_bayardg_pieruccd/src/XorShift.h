@@ -17,9 +17,9 @@ public:
     void setA3(long a3);
        
 private:
-    long a1;
-    long a2;
-    long a3;
+    unsigned long a1;
+    unsigned long a2;
+    unsigned long a3;
 
 };
 

@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 Distribution::Distribution() {
+    dimension = 1;
 }
 
 void Distribution::setDimension(int dim) {
@@ -10,14 +11,8 @@ void Distribution::setDimension(int dim) {
 }
 
 Distribution::Distribution(const Distribution& orig) {
+    dimension = orig.dimension;    
 }
 
 Distribution::~Distribution() {
 }
-
-std::vector<double> Distribution::generate() {
-    std::vector<double> res;
-    return res;
-}
-
-

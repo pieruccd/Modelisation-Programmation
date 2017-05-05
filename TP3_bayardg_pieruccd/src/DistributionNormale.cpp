@@ -11,9 +11,19 @@ DistributionNormale::DistributionNormale(double moy, double sig) {
 }
 
 DistributionNormale::DistributionNormale(const DistributionNormale& orig) {
+    sigma = orig.sigma;
+    m = orig.m;
 }
 
 DistributionNormale::~DistributionNormale() {
+}
+
+double DistributionNormale::mean() {
+    return m;
+}
+
+double DistributionNormale::var() {
+    return sigma*sigma;
 }
 
 std::vector<double> DistributionNormale::generate() {

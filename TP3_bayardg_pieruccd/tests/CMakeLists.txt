@@ -14,3 +14,9 @@ add_executable(test_operator test_operator.cxx)
 target_link_libraries(test_operator
 toto
 gtest)
+
+add_executable(test_generator test_generator.cxx)
+target_link_libraries(test_generator
+toto
+gtest)
+

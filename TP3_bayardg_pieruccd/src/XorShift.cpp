@@ -18,6 +18,9 @@ XorShift::XorShift(long a1, long a2, long a3) {
 }
 
 XorShift::XorShift(const XorShift& orig) {
+    a1 = orig.a1;
+    a2 = orig.a2;
+    a3 = orig.a3;
 }
 
 XorShift::~XorShift() {
@@ -47,8 +50,8 @@ void XorShift::setA3(long a3) {
     this->a3 = a3;
 }
 
-std::vector<double> XorShift::generate() {
-    std::vector<double> result;
+std::vector<unsigned long> XorShift::generate() {
+    std::vector<unsigned long> result;
     result.resize(dimension);
     seed = seed ^ (seed << a1);
     seed = seed ^ (seed >> a2);
@@ -57,7 +60,7 @@ std::vector<double> XorShift::generate() {
         seed = seed ^ (seed << a1);
         seed = seed ^ (seed >> a2);
         seed = seed ^ (seed << a3);
-        result[i] = (double) seed / ((double) ULONG_MAX);
+        result[i] = seed;
     }
     return result;
 }

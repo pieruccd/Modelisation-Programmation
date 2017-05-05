@@ -12,7 +12,7 @@ void Dvector::display (std::ostream& str){
 
 Dvector::~Dvector()
 {
-	std::cout<<"Dvector de taille "<<dim<<" détruit\n";
+//	std::cout<<"Dvector de taille "<<dim<<" détruit\n";
 	delete [] p;
 }
 
@@ -41,9 +41,10 @@ Dvector::Dvector (int d, double value)
 {
 	dim = d;
 	p = new double[dim];
-	for (int i=0; i<dim; i++)
+	for (int i=0; i<dim; i++){
 		p[i] = value;
-	std::cout<<"Dvector de  "<<dim<<" cases de valeur "<<value<<" créé\n";
+}
+//	std::cout<<"Dvector de  "<<dim<<" cases de valeur "<<value<<" créé\n";
 }
 
 int Dvector::size() const{
@@ -178,7 +179,7 @@ Dvector operator*(Dvector & v,Dvector & w) {
 		return a;*/
 	Dvector v1(v);
 	v1*=(w);
-return v1;
+	return v1;
 }
 
 Dvector operator/(Dvector & v,Dvector & w){
@@ -266,7 +267,6 @@ Dvector & Dvector::operator+= (const Dvector & v){
 		w(i)=w(i)+v(i);
 	}
 	return w;
-	return w;
 }
 
 Dvector & Dvector::operator-= (const Dvector & v){
@@ -305,12 +305,15 @@ Dvector & Dvector::operator= (const Dvector & v)
 	delete[] p; 
 	p = new double[v.size()];
 	dim = v.size();
-	memcpy(p, v.p, sizeof(double) * dim);
+        for (int i=0; i<v.size(); i++){
+                p[i]=3;
+        }
+//	memcpy(p, v.p, sizeof(double) * dim);
 	return *this;
 }
 
-bool Dvector::operator== (Dvector & v)
-{
+
+bool Dvector::operator== (Dvector & v){
 	if (dim!=v.size()){
 		return false;
 	}

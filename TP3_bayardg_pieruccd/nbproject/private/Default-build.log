@@ -1,7 +1,0 @@
-g++    -c -o src/GenerateurNombreAleatoire.o src/GenerateurNombreAleatoire.cpp
-g++    -c -o src/main.o src/main.cpp
-g++ -o GenerateurNombreAleatoire src/GenerateurNombreAleatoire.o src/main.o 
-/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o: In function `_start':
-(.text+0x20): undefined reference to `main'
-collect2: error: ld returned 1 exit status
-gmake: *** [GenerateurNombreAleatoire] Error 1

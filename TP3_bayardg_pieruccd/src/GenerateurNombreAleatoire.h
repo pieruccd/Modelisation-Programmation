@@ -14,7 +14,7 @@ public:
     void set_seed(unsigned long new_seed);
     long get_seed();
     void reset_seed();
-    virtual std::vector<double> generate();
+    virtual std::vector<unsigned long> generate();
 
 protected:
     int dimension;

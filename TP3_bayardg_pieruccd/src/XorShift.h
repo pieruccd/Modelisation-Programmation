@@ -8,7 +8,7 @@ public:
     XorShift(long a1, long a2, long a3);
     XorShift(const XorShift& orig);
     virtual ~XorShift();
-    std::vector<double> generate();
+    std::vector<unsigned long> generate();
     long getA1() const;
     long getA2() const;
     long getA3() const;

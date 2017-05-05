@@ -8,10 +8,10 @@ public:
     ParkMiller();
     ParkMiller(const ParkMiller& orig);
     virtual ~ParkMiller();
-    std::vector<double> generate();
+    std::vector<unsigned long> generate();
 private:
-    long a;
-    long m;
+    unsigned long a;
+    unsigned long m;
 };
 
 #endif /* PARKMILLER_H */

@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.11)
 
-set(EXECUTABLE_OUTPUT_PATH build/${CMAKE_BUILD_TYPE})
+#set(EXECUTABLE_OUTPUT_PATH build/${CMAKE_BUILD_TYPE})
+set(EXECUTABLE_OUTPUT_PATH .)
+
 
 set(CMAKE_CXX_FLAGS "-g -Wall")
 
@@ -9,7 +11,6 @@ set(CMAKE_BUILD_TYPE Release)
 project(Generateur_Nombre_Aleatoire)
 
 add_subdirectory(src)
-add_subdirectory(main)
 add_subdirectory(doc)
 add_subdirectory(tests)
 enable_testing ()

@@ -1,18 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   Distribution.h
- * Author: pierucci
- *
- * Created on 4 mai 2017, 12:09
- */
 
 #ifndef DISTRIBUTION_H
 #define DISTRIBUTION_H
+
+#include <vector>
 
 class Distribution {
 public:

@@ -9,6 +9,9 @@ ParkMiller::ParkMiller() {
 }
 
 ParkMiller::ParkMiller(const ParkMiller& orig) {
+    seed = orig.seed;
+    a = orig.a;
+    m = orig.m;
 }
 
 ParkMiller::~ParkMiller() {

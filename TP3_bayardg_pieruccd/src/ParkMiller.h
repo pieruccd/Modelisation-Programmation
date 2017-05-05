@@ -5,10 +5,18 @@
 
 class ParkMiller : public GenerateurNombreAleatoire {
 public:
+    
     ParkMiller();
     ParkMiller(const ParkMiller& orig);
     virtual ~ParkMiller();
-    std::vector<unsigned long> generate();
+    
+    /**
+     * Fonction qui renvoie un vecteur d'entiers aléatoires de taille la
+     * dimension du générateur suivant l'algo de Park-Miller
+     * @return vecteur d'entiers aléatoire de taille le champ dimension
+     */
+    virtual std::vector<unsigned long> generate();
+    
 private:
     unsigned long a;
     unsigned long m;

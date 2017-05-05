@@ -12,13 +12,7 @@ int main(void) {
     std::cout << "[INFO] Lancement des tests ..." << std::endl;
 
     // test divers (non statistiques) 
-
-    GenerateurNombreAleatoire *testGen = new GenerateurNombreAleatoire();
-    assert(testGen->getDimension() == 1);
-    testGen->setDimension(3);
-    assert(testGen->getDimension() == 3);
-    GenerateurNombreAleatoire *testGen2 = new GenerateurNombreAleatoire(10);
-    assert(testGen2->getDimension() == 10);
+    
     ParkMiller *testParkMiller = new ParkMiller();
     testParkMiller->setDimension(100);
 
@@ -64,8 +58,6 @@ int main(void) {
 
     delete normalTest;
     delete uniTest;
-    delete testGen;
-    delete testGen2;
     delete testParkMiller;
     delete testXorShift;
 

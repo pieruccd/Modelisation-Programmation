@@ -29,13 +29,6 @@ void GenerateurNombreAleatoire::reset_seed() {
     seed = (unsigned long) time(NULL);
 }
 
-std::vector<unsigned long> GenerateurNombreAleatoire::generate() {
-    std::vector<unsigned long> res;
-    std::cout << "ERREUR" << std::endl;
-    return res;
-}
-
-
 
 
 

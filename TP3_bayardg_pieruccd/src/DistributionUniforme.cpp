@@ -9,11 +9,20 @@ DistributionUniforme::DistributionUniforme(double a, double b) {
 }
 
 DistributionUniforme::DistributionUniforme(const DistributionUniforme& orig) {
+    min = orig.min;
+    max = orig.max;
 }
 
 DistributionUniforme::~DistributionUniforme() {
 }
 
+double DistributionUniforme::mean() {
+    return (min + max)/2;
+}
+
+double DistributionUniforme::var() {
+    return (max-min)*(max-min)/12;
+}
 
 std::vector<double> DistributionUniforme::generate() {
     

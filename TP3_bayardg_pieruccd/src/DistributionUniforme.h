@@ -9,7 +9,10 @@ class DistributionUniforme : public Distribution {
 public:
     DistributionUniforme(double a, double b);
     DistributionUniforme(const DistributionUniforme& orig);
+    double mean();
+    double var();
     virtual ~DistributionUniforme();
+    
     std::vector<double> generate();
     
 private:  

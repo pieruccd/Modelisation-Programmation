@@ -9,7 +9,9 @@ public:
     DistributionNormale(double moy, double sig);
     DistributionNormale(const DistributionNormale& orig);
     virtual ~DistributionNormale();
-    std::vector<double> generate();
+    virtual double mean();
+    virtual double var();
+    virtual std::vector<double> generate();
 private:
     double m;
     double sigma;
